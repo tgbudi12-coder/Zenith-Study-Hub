@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Study Hub | AI-Powered Productivity</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Header Navigasi -->
+        <header class="topbar">
+            <div class="brand">
+                <div class="logo-dot"></div>
+                <h1>Zenith<span>Hub</span></h1>
+            </div>
+            <div class="header-actions">
+                <button id="haptic-toggle" class="icon-btn" title="Aktif/Nonaktifkan Getar">📳 Getar: ON</button>
+                <button id="theme-toggle" class="icon-btn" title="Ganti Tema">🌙</button>
+            </div>
+        </header>
+
+        <!-- Navigasi Tab Interaktif -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-target="dashboard">Dashboard & Tugas</button>
+            <button class="tab-btn" data-target="focus">Focus Station</button>
+            <button class="tab-btn" data-target="ai-helper">AI Task Deconstructor</button>
+        </nav>
+
+        <!-- KONTEN 1: DASHBOARD & MANAJEMEN TUGAS -->
+        <main id="dashboard" class="tab-content active">
+            <div class="card hero-card">
+                <h2>Selamat Datang di Zenith</h2>
+                <p>Kelola fokus belajarmu dan pecah proyek besar menjadi langkah kecil yang terukur.</p>
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <span id="total-tasks">0</span>
+                        <small>Total Tugas</small>
+                    </div>
+                    <div class="stat-box">
+                        <span id="completed-tasks">0</span>
+                        <small>Selesai</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Daftar Tugas Harian</h3>
+                <div class="input-group">
+                    <input type="text" id="task-input" placeholder="Tulis tugas baru (misal: Belajar Dasar Python)...">
+                    <button id="add-task-btn" class="primary-btn">+ Tambah</button>
+                </div>
+                <ul id="task-list" class="task-list"></ul>
+            </div>
+        </main>
+
+        <!-- KONTEN 2: FOCUS STATION (POMODORO + HAPTIC) -->
+        <main id="focus" class="tab-content">
+            <div class="card focus-card">
+                <h3>Pomodoro Focus Timer</h3>
+                <p class="subtitle">Fokus selama 25 menit. Perangkat akan bergetar lembut saat waktu usai.</p>
+                
+                <div class="timer-display">
+                    <span id="minutes">25</span>:<span id="seconds">00</span>
+                </div>
+
+                <div class="timer-controls">
+                    <button id="start-timer" class="primary-btn">Mulai Fokus</button>
+                    <button id="pause-timer" class="secondary-btn">Jeda</button>
+                    <button id="reset-timer" class="secondary-btn">Reset</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- KONTEN 3: AI TASK DECONSTRUCTOR -->
+        <main id="ai-helper" class="tab-content">
+            <div class="card">
+                <h3>✨ AI Project Deconstructor</h3>
+                <p class="subtitle">Masukkan topik proyek atau pelajaran sulit, sistem akan menyusun langkah pengerjaannya secara otomatis.</p>
+                
+                <div class="input-group">
+                    <input type="text" id="ai-prompt-input" placeholder="Contoh: Membuat Website Portofolio atau Belajar Ujian Matematika">
+                    <button id="generate-steps-btn" class="primary-btn">Pecah Tugas</button>
+                </div>
+
+                <div id="ai-result-container" class="ai-result hidden">
+                    <h4>Rekomendasi Tahapan Kerja:</h4>
+                    <ul id="ai-steps-list" class="ai-steps"></ul>
+                    <button id="import-to-tasks-btn" class="secondary-btn full-width">+ Masukkan Semua ke Daftar Tugas</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notifikasi Toast -->
+    <div id="toast" class="toast">Notifikasi</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
